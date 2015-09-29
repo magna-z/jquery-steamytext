@@ -1,17 +1,17 @@
 /**
  * @name jquery-steamytext
- * @version 1.0.0
+ * @version 1.1.0
  * @description jQuery SteamyText animation plugin
  * @author Maxim Zalysin <max@zalysin.ru>
  */
 (function($){
     $.fn.steamyText = function(data){
         var defaults = {
-            text: ''
-            , duration: 1500
-            , displace: 50
-            , tag: 'span'
-            , zIndex: 0
+            text: '',
+            duration: 1500,
+            displace: 50,
+            tag: 'span',
+            zIndex: 10000
         }
         , options
         switch(typeof data){
