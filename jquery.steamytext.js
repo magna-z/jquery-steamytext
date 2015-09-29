@@ -1,11 +1,11 @@
 /**
  * @name jquery-steamytext
- * @version 1.1.0
+ * @version 1.2.0
  * @description jQuery SteamyText animation plugin
  * @author Maxim Zalysin <max@zalysin.ru>
  */
 (function($){
-    $.fn.steamyText = function(data){
+    $.fn.steamyText = function(data, callback){
         var defaults = {
             text: '',
             duration: 1500,
@@ -34,7 +34,10 @@
         if(thisWidth > textWidth) thisOffsetLeft = thisOffset.left + ((thisWidth - textWidth)/2)
         else thisOffsetLeft = thisOffset.left - ((textWidth - thisWidth)/2)
         $text.css({'top': thisOffset.top, 'left': thisOffsetLeft}).show()
-        .animate({top: '-='+options.displace+'px', opacity: 'toggle'}, options.duration, function(){ /*$(this).remove()*/ })
+        .animate({top: '-='+options.displace+'px', opacity: 'toggle'}, options.duration, function(){
+            $(this).remove()
+            if(typeof callback === 'function') callback(this)
+        })
         return this
     }
 }(jQuery))
